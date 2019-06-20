@@ -1,5 +1,10 @@
 
 
+// You will need to have variables for wins, losses and a score.
+var wins = 0;
+var losses = 0;
+var score = 0;
+
 // You will be given a random number at start of game between 1 and 120.
 //The random generated number is in a box and you see it.
 var randomNum = Math.floor((Math.random() * 120) + 1);
@@ -13,10 +18,10 @@ var crystal2 = Math.floor((Math.random() * 12) + 1);
 var crystal3 = Math.floor((Math.random() * 12) + 1);
 var crystal4 = Math.floor((Math.random() * 12) + 1);
 
-console.log("1 is" + crystal1);
-console.log("2 is" + crystal1);
-console.log("3 is" + crystal3);
-console.log("4 is" + crystal4);
+console.log("1 is" +crystal1);
+console.log("2 is" +crystal1);
+console.log("3 is" +crystal3);
+console.log("4 is" +crystal4);
 
 // When you click on a crystal, you will add a specific amount of points to your total score.
 var updatedScore = function () {
@@ -53,7 +58,7 @@ var gameProcess = function () {
 
 //The value of each crystal is hidden from you until you click on it.
 // Each time you click a crystal, it adds to your score until you match or go over the computer's random number. Values are betwwen 1 and 12.
-$(document).ready(function () {
+$(document).ready(function() {
     $('#crystal1').click(function () {
         score = score + crystal1;
         gameProcess();
@@ -80,20 +85,20 @@ $(document).ready(function () {
 // Each time the game restarts, your score will reset to 0.
 // Each time the game restarts, the game will change the value for each crystal.
 
-var gameRestart = function () {
-    return Math.floor((Math.random() * 120) + 1);
+    var gameRestart =   function () {
+                return Math.floor((Math.random() * 120) + 1);
     score = 0;
+      
+$('.random').empty();
+$('.random').append(random);
+    
 
-    $('.random').empty();
-    $('.random').append(random);
-}
-{
-    var crystal1 = Math.floor((Math.random() * 12) + 1);
-    var crystal2 = Math.floor((Math.random() * 12) + 1);
-    var crystal3 = Math.floor((Math.random() * 12) + 1);
-    var crystal4 = Math.floor((Math.random() * 12) + 1);
+var crystal1 = Math.floor((Math.random() * 12) + 1);
+var crystal2 = Math.floor((Math.random() * 12) + 1);
+var crystal3 = Math.floor((Math.random() * 12) + 1);
+var crystal4 = Math.floor((Math.random() * 12) + 1);
 
-    updatedScore();
+updatedScore();
 
 }
 
