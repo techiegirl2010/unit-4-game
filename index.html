@@ -56,12 +56,12 @@
         // When lose, you see a "You lost!" and your loss score increases by one.
         var gameProcess = function () {
             if (score === randomNum) {
-                wins = wins + 1;
+                wins++;
                 alert("You won!");
                 restartGame();
             }
             else if (score > randomNum) {
-                losses = losses + 1;
+                losses++;
                 alert("You lost!");
                 reStartGame();
             }
