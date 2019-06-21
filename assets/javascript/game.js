@@ -26,14 +26,13 @@ console.log("4 is" + red);
 
 // When you click on a crystal, you will add a specific amount of points to your total score.
 var updatedScore = function () {
-    $("#wins").empty();
-    $("#wins").append(wins);
+    $("#wins").text("Wins: "  + wins);
 
-    $("#losses").empty();
-    $("#losses").append(losses);
+    $("#losses").text("Losses: " + losses);
 
-    $("#score").empty();
-    $("#score").append(score);
+    $("#score").text("Score: " + score);
+
+
 
 }
 
@@ -44,13 +43,19 @@ var updatedScore = function () {
 var gameProcess = function () {
     if (score === randomNum) {
         wins++;
-        alert("You won!");
-        restartGame();
+        // alert("You won!");
+        $("#wl").text("results: win " );
+
+        gameRestart();
+
     }
     else if (score > randomNum) {
         losses++;
-        alert("You lost!");
-        reStartGame();
+        $("#wl").text("result loss:" );
+
+        // alert("You lost!");
+        gameRestart();
+
     }
     else {
         updatedScore()
@@ -68,6 +73,7 @@ $(document).ready(function () {
         score = score + blue;
         $("#score").html("Score:" + score)
         console.log("you've clicked blue")
+        gameProcess()
     })
 
 
@@ -76,6 +82,8 @@ $(document).ready(function () {
         score = score + green;
         $("#score").html("Score:" + score)
         console.log("you've clicked green")
+        gameProcess()
+
     })
 
 
@@ -83,6 +91,8 @@ $(document).ready(function () {
         score = score + purple;
         $("#score").html("Score:" + score)
         console.log("you've clicked purple")
+        gameProcess()
+
     })
 
 
@@ -91,6 +101,8 @@ $(document).ready(function () {
         score = score + red;
         $("#score").html("Score:" + score)
         console.log("you've clicked red")
+        gameProcess()
+
     })
 });
 
@@ -103,9 +115,9 @@ $(document).ready(function () {
 
 var gameRestart = function () {
     score = 0;
+    randomNum = Math.floor((Math.random() * 120) + 1);
 
-    $(".random").empty();
-    $(".random").append(randomNum);
+    $("#randomNumber").text("Match this number: " + randomNum);
 
 
     blue = Math.floor((Math.random() * 12) + 1);
