@@ -1,5 +1,10 @@
 
 
+// You will need to have variables for wins, losses and a score.
+var wins = 0;
+var losses = 0;
+var score = 0;
+
 // You will be given a random number at start of game between 1 and 120.
 //The random generated number is in a box and you see it.
 var randomNum = Math.floor((Math.random() * 120) + 1);
@@ -8,15 +13,16 @@ console.log(randomNum);
 
 // There are four crystals that you can click on. 
 // Crystal values are between 1 and 12.
-var crystal1 = Math.floor((Math.random() * 12) + 1);
-var crystal2 = Math.floor((Math.random() * 12) + 1);
-var crystal3 = Math.floor((Math.random() * 12) + 1);
-var crystal4 = Math.floor((Math.random() * 12) + 1);
+var blue = Math.floor((Math.random() * 12) + 1);
+var green = Math.floor((Math.random() * 12) + 1);
+var purple = Math.floor((Math.random() * 12) + 1);
+var red = Math.floor((Math.random() * 12) + 1);
 
-console.log("1 is" + crystal1);
-console.log("2 is" + crystal1);
-console.log("3 is" + crystal3);
-console.log("4 is" + crystal4);
+console.log("1 is" + blue);
+console.log("2 is" + green);
+console.log("3 is" + purple);
+console.log("4 is" + red);
+
 
 // When you click on a crystal, you will add a specific amount of points to your total score.
 var updatedScore = function () {
@@ -28,6 +34,8 @@ var updatedScore = function () {
 
     $('.score').empty();
     $('.score').append(score);
+
+
 
 }
 
@@ -54,47 +62,59 @@ var gameProcess = function () {
 //The value of each crystal is hidden from you until you click on it.
 // Each time you click a crystal, it adds to your score until you match or go over the computer's random number. Values are betwwen 1 and 12.
 $(document).ready(function () {
-    $('#crystal1').click(function () {
-        score = score + crystal1;
+    $("#wins").append(wins);
+    $("#losses").append(losses);
+    $("#score").append(score);
+    $("#randomNumber").append(randomNum);
+    $("#blue").click(function () {
+        score = score + blue;
+        $("#score").html("Score: " + score)
+        console.log("you've clicked blue")
+    })
+
+    $("#green").click(function () {
+        $("#wins").append(wins);
+        score = score + green;
+        $("#score").html("Score: " + score)
         gameProcess();
     })
 
-    $('#crystal2').click(function () {
-        score = score + crystal2;
+    $("#purple").click(function () {
+        $("#wins").append(wins);
+        score = score + purple;
+        $("#score").html("Score: " + score)
         gameProcess();
     })
 
-    $('#crystal3').click(function () {
-        score = score + crystal3;
-        gameProcess();
-    })
-
-    $('#crystal4').click(function () {
-        score = score + crystal4;
+    $("#red").click(function () {
+        $("#wins").append(wins);
+        score = score + red;
+        $("#score").html("Score: " + score)
         gameProcess();
     })
 });
+
 
 // Game restarts when there is a win or a loss.
 // Each time game restarts, the computer generates a new random number that you see.
 // Each time the game restarts, your score will reset to 0.
 // Each time the game restarts, the game will change the value for each crystal.
 
+
 var gameRestart = function () {
-    return Math.floor((Math.random() * 120) + 1);
     score = 0;
 
     $('.random').empty();
     $('.random').append(random);
-}
-{
-    var crystal1 = Math.floor((Math.random() * 12) + 1);
-    var crystal2 = Math.floor((Math.random() * 12) + 1);
-    var crystal3 = Math.floor((Math.random() * 12) + 1);
-    var crystal4 = Math.floor((Math.random() * 12) + 1);
+
+
+     blue = Math.floor((Math.random() * 12) + 1);
+     green = Math.floor((Math.random() * 12) + 1);
+     purple = Math.floor((Math.random() * 12) + 1);
+     red = Math.floor((Math.random() * 12) + 1);
 
     updatedScore();
-
+    return Math.floor((Math.random() * 120) + 1);
 }
 
 
