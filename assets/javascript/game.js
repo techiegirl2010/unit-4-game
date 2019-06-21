@@ -26,14 +26,14 @@ console.log("4 is" + red);
 
 // When you click on a crystal, you will add a specific amount of points to your total score.
 var updatedScore = function () {
-    $('#wins').empty();
-    $('#wins').append(wins);
+    $("#wins").empty();
+    $("#wins").append(wins);
 
-    $('#losses').empty();
-    $('#losses').append(losses);
+    $("#losses").empty();
+    $("#losses").append(losses);
 
-    $('.score').empty();
-    $('.score').append(score);
+    $("#score").empty();
+    $("#score").append(score);
 
 }
 
@@ -60,36 +60,38 @@ var gameProcess = function () {
 //The value of each crystal is hidden from you until you click on it.
 // Each time you click a crystal, it adds to your score until you match or go over the computer's random number. Values are betwwen 1 and 12.
 $(document).ready(function () {
-    $('#wins').append(wins);
-    $('#losses').append(losses);
-    $('#score').append(score);
-    $('#randomNumber').append(randomNum);
-    $('#blue').click(function () {
+    $("#wins").append(wins);
+    $("#losses").append(losses);
+    $("#score").append(score);
+    $("#randomNumber").append(randomNum);
+    $("#blue").click(function () {
         score = score + blue;
-        $('#score').html('Score: ' + score)
+        $("#score").html("Score:" + score)
         console.log("you've clicked blue")
     })
 
+
+
     $("#green").click(function () {
-        $('#wins').append(wins);
         score = score + green;
-        $('#score').html('Score: ' + score)
+        $("#score").html("Score:" + score)
         console.log("you've clicked green")
     })
 
+
     $("#purple").click(function () {
-        $('#wins').append(wins);
         score = score + purple;
-        $('#score').html('Score: ' + score)
+        $("#score").html("Score:" + score)
         console.log("you've clicked purple")
     })
 
+
+
     $("#red").click(function () {
-        $("#wins").append(wins);
         score = score + red;
-        $('#score').html('Score: ' + score)
+        $("#score").html("Score:" + score)
         console.log("you've clicked red")
-    })  
+    })
 });
 
 
@@ -102,14 +104,14 @@ $(document).ready(function () {
 var gameRestart = function () {
     score = 0;
 
-    $('.random').empty();
-    $('.random').append(random);
+    $(".random").empty();
+    $(".random").append(randomNum);
 
 
-     blue = Math.floor((Math.random() * 12) + 1);
-     green = Math.floor((Math.random() * 12) + 1);
-     purple = Math.floor((Math.random() * 12) + 1);
-     red = Math.floor((Math.random() * 12) + 1);
+    blue = Math.floor((Math.random() * 12) + 1);
+    green = Math.floor((Math.random() * 12) + 1);
+    purple = Math.floor((Math.random() * 12) + 1);
+    red = Math.floor((Math.random() * 12) + 1);
 
     updatedScore();
     return Math.floor((Math.random() * 120) + 1);
