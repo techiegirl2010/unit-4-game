@@ -35,8 +35,6 @@ var updatedScore = function () {
     $('.score').empty();
     $('.score').append(score);
 
-
-
 }
 
 // Goal of game (WIN) by matching your total score to the random number.
@@ -62,36 +60,36 @@ var gameProcess = function () {
 //The value of each crystal is hidden from you until you click on it.
 // Each time you click a crystal, it adds to your score until you match or go over the computer's random number. Values are betwwen 1 and 12.
 $(document).ready(function () {
-    $("#wins").append(wins);
-    $("#losses").append(losses);
-    $("#score").append(score);
-    $("#randomNumber").append(randomNum);
-    $("#blue").click(function () {
+    $('#wins').append(wins);
+    $('#losses').append(losses);
+    $('#score').append(score);
+    $('#randomNumber').append(randomNum);
+    $('#blue').click(function () {
         score = score + blue;
-        $("#score").html("Score: " + score)
+        $('#score').html('Score: ' + score)
         console.log("you've clicked blue")
     })
 
     $("#green").click(function () {
-        $("#wins").append(wins);
+        $('#wins').append(wins);
         score = score + green;
-        $("#score").html("Score: " + score)
-        gameProcess();
+        $('#score').html('Score: ' + score)
+        console.log("you've clicked green")
     })
 
     $("#purple").click(function () {
-        $("#wins").append(wins);
+        $('#wins').append(wins);
         score = score + purple;
-        $("#score").html("Score: " + score)
-        gameProcess();
+        $('#score').html('Score: ' + score)
+        console.log("you've clicked purple")
     })
 
     $("#red").click(function () {
         $("#wins").append(wins);
         score = score + red;
-        $("#score").html("Score: " + score)
-        gameProcess();
-    })
+        $('#score').html('Score: ' + score)
+        console.log("you've clicked red")
+    })  
 });
 
 
